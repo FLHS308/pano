@@ -1,38 +1,20 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>全景展示</title>
-    <link rel="stylesheet" href="pannellum.css">
-    <script src="pannellum.js"></script>
-</head>
-<body>
-    <div id="panorama" style="width: 100%; height: 100vh;"></div>
-
-    <script>
-        pannellum.viewer('panorama', {
-            type: "equirectangular",
-            panorama: "pano.jpg",
-            autoLoad: true,
-            autoRotate: -2
-        });
-    </script>
-</body>
-<!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>FPP 全景展示</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Pannellum -->
-    <link rel="stylesheet" href="pannellum.css"/>
+    <!-- Pannellum 样式和脚本 -->
+    <link rel="stylesheet" href="pannellum.css">
     <script src="pannellum.js"></script>
 
     <style>
         html, body {
-            height: 100%;
             margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
         }
         #panorama {
             width: 100%;
@@ -45,11 +27,16 @@
     <div id="panorama"></div>
 
     <script>
+        // 初始化 Pannellum 全景播放器
         pannellum.viewer('panorama', {
-            "type": "equirectangular",
-            "panorama": "FPP.jpg",
-            "autoLoad": true,
-            "autoRotate": -2
+            type: "equirectangular",
+            panorama: "FPP.jpg",        // 确保图片存在且路径无误
+            autoLoad: true,             // 自动加载
+            autoRotate: -2,             // 自动旋转（负值 = 顺时针） :contentReference[oaicite:1]{index=1}
+            showZoomCtrl: true,         // 显示缩放按钮
+            compass: false,             // 不显示指南针
+            pitch: 0,
+            yaw: 0
         });
     </script>
 </body>
