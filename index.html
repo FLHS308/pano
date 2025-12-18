@@ -19,3 +19,42 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>自动旋转全景展示</title>
+    <link rel="stylesheet" href="pannellum.css">
+    <script src="pannellum.js"></script>
+
+    <style>
+        /* 去除页面边距，使全景全屏展示 */
+        body, html {
+            margin: 0;
+            height: 100%;
+        }
+        #panorama {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="panorama"></div>
+
+    <script>
+        pannellum.viewer('panorama', {
+            type: "equirectangular",
+            panorama: "pano.jpg",     // 全景图文件名
+            autoLoad: true,           // 自动加载
+            autoRotate: -2,           // 自动旋转速度（负 = 顺时针）
+            showZoomCtrl: true,       // 显示缩放按钮
+            compass: false,           // 隐藏指南针
+            hfov: 110,                // 初始水平视角，可调整
+            pitch: 0,                 // 初始上下角度
+            yaw: 0                    // 初始左右角度
+        });
+    </script>
+</body>
+</html>
