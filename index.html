@@ -17,7 +17,6 @@
             width: 100%;
             height: 100%;
         }
-        /* 场景切换按钮样式 */
         #sceneMenu {
             position: absolute;
             top: 20px;
@@ -39,7 +38,6 @@
         #sceneMenu button:hover {
             background: #eaeaea;
         }
-        /* 场景说明文字 */
         #sceneText {
             position: absolute;
             bottom: 40px;
@@ -65,14 +63,12 @@
 <body>
     <div id="panorama"></div>
 
-    <!-- 场景切换菜单 -->
     <div id="sceneMenu">
         <button onclick="switchScene('fpp')">FPP 全景</button>
-        <button onclick="switchScene('maotou')">码头 全景</button>
-        <button onclick="switchScene('diancang')">电厂 全景</button>
+        <button onclick="switchScene('maotou')">码头全景</button>
+        <button onclick="switchScene('diancang')">电厂全景</button>
     </div>
 
-    <!-- 场景说明文字 -->
     <div id="sceneText">
         <div id="sceneTitle"></div>
         <div id="sceneDesc"></div>
@@ -81,7 +77,6 @@
     <script>
         let viewer;
 
-        // 定义所有场景
         const scenes = {
             fpp: {
                 image: "FPP.jpg",
@@ -100,7 +95,6 @@
             }
         };
 
-        // 初始化默认场景
         function initViewer() {
             viewer = pannellum.viewer('panorama', {
                 type: "equirectangular",
@@ -108,17 +102,14 @@
                 autoRotate: -2,
                 panorama: scenes.fpp.image
             });
-
             updateSceneText('fpp');
         }
 
-        // 更新左下角场景文字
         function updateSceneText(key) {
             document.getElementById("sceneTitle").innerText = scenes[key].title;
             document.getElementById("sceneDesc").innerText = scenes[key].desc;
         }
 
-        // 切换场景
         function switchScene(key) {
             viewer.loadScene(key, {
                 type: "equirectangular",
